@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080d1b">
+  <meta name="description" content="Homyra Akther Shaila's portfolio: student developer, aspiring AI researcher, and educator exploring human-centered technology.">
+  <title>Homyra Akther Shaila | AI, Research & Education</title>
+
+  <style>
+    :root {
+      --bg: #080d1b;
+      --panel: #10182b;
+      --text: #edf1ff;
+      --muted: #a8b3ce;
+      --purple: #a78bfa;
+      --blue: #60a5fa;
+      --border: rgba(167, 139, 250, 0.2);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 85px; }
+
+    body {
+      margin: 0;
+      background:
+        radial-gradient(ellipse at 80% 0%, #1d1744 0, transparent 35%),
+        var(--bg);
+      color: var(--text);
+      font-family: system-ui, -apple-system, sans-serif;
+      line-height: 1.7;
+    }
+
+    a { color: var(--blue); text-decoration: none; }
+    a:hover { color: var(--purple); }
+    button, a { -webkit-tap-highlight-color: transparent; }
+
+    .container { width: min(1060px, 90%); margin: auto; }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(8, 13, 27, .93);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(14px);
+    }
+
+    nav {
+      min-height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .brand { font-weight: 800; color: white; font-size: 1.05rem; }
+    .brand span { color: var(--purple); }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      font-size: .88rem;
+    }
+
+    .nav-links a { color: var(--muted); }
+    .nav-links a:hover { color: white; }
+
+    .hero { padding: 90px 0 75px; }
+
+    .eyebrow {
+      color: var(--purple);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: .78rem;
+      font-weight: 800;
+    }
+
+    h1 {
+      max-width: 780px;
+      font-size: clamp(2.5rem, 7vw, 5rem);
+      line-height: 1.1;
+      letter-spacing: -2px;
+      margin: 20px 0;
+    }
+
+    .gradient {
+      background: linear-gradient(100deg, #c4b5fd, #60a5fa);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .intro { max-width: 670px; color: var(--muted); font-size: 1.08rem; }
+
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+
+    .btn {
+      display: inline-block;
+      padding: 11px 18px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      font-weight: 700;
+    }
+
+    .primary {
+      background: linear-gradient(110deg, #7c3aed, #4f46e5);
+      color: white;
+      border: none;
+    }
+
+    .secondary { color: var(--text); background: #111a30; }
+
+    .hero-note {
+      border-left: 3px solid var(--purple);
+      padding-left: 15px;
+      color: var(--muted);
+      margin-top: 36px;
+      font-size: .94rem;
+    }
+
+    section { padding: 55px 0; }
+
+    .section-title { font-size: 2rem; margin: 0 0 8px; letter-spacing: -.6px; }
+
+    .section-lead { color: var(--muted); margin: 0 0 28px; max-width: 700px; }
+
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+
+    .card {
+      background: linear-gradient(145deg, rgba(17, 26, 48, .96), rgba(13, 20, 38, .96));
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 23px;
+      min-width: 0;
+    }
+
+    .card h3 { margin: 0 0 8px; font-size: 1.12rem; }
+    .card p { color: var(--muted); margin: 8px 0 14px; }
+    .card .meta { color: var(--purple); font-size: .78rem; font-weight: 800; }
+
+    .tags { display: flex; flex-wrap: wrap; gap: 7px; margin: 14px 0; }
+
+    .tag {
+      font-size: .77rem;
+      color: #d8d6fe;
+      background: #211c42;
+      border: 1px solid #3b3069;
+      padding: 4px 9px;
+      border-radius: 20px;
+    }
+
+    .timeline { border-left: 1px solid #51427e; padding-left: 22px; }
+
+    .timeline-item { position: relative; margin: 0 0 26px; }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      width: 9px;
+      height: 9px;
+      left: -27px;
+      top: 10px;
+      border-radius: 50%;
+      background: var(--purple);
+    }
+
+    .timeline-item h3 { margin: 0 0 4px; }
+    .timeline-item p { margin: 0; color: var(--muted); }
+
+    .contact-box {
+      background: linear-gradient(120deg, #201747, #102443);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 30px;
+    }
+
+    footer { border-top: 1px solid var(--border); padding: 25px 0; color: var(--muted); font-size: .85rem; }
+
+    @media (max-width: 650px) {
+      nav { align-items: flex-start; flex-direction: column; padding: 14px 0; }
+      .nav-links { gap: 9px 14px; }
+      .hero { padding-top: 58px; }
+      .grid { grid-template-columns: 1fr; }
+      h1 { letter-spacing: -1.2px; }
+      section { padding: 40px 0; }
+      .card { padding: 19px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav class="container" aria-label="Main navigation">
+      <a class="brand" href="#home">Homyra<span>.</span></a>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#research">Research</a>
+        <a href="#achievements">Achievements</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero container" id="home">
+      <div class="eyebrow">Student developer · Aspiring AI researcher</div>
+      <h1>Building technology<br>with <span class="gradient">human purpose.</span></h1>
+      <p class="intro">
+        I'm Homyra Akther Shaila, an HSC graduate from Bangladesh
+        interested in artificial intelligence, computer science,
+        educational access, and technology that serves people.
+        I learn by researching, building prototypes, and teaching.
+      </p>
+      <div class="actions">
+        <a class="btn primary" href="#projects">Explore my projects ↗</a>
+        <a class="btn secondary" href="#research">Explore my research</a>
+      </div>
+      <p class="hero-note">
+        My goal is to make useful technology and learning opportunities
+        more accessible, especially for people with limited resources.
+      </p>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <h2 class="section-title">About me</h2>
+        <p class="section-lead">
+          An independent learner exploring the intersection of AI,
+          software, research, and education.
+        </p>
+        <div class="grid">
+          <article class="card">
+            <h3>My approach</h3>
+            <p>
+              I learn through independent study, writing, experimentation,
+              and creating early-stage software projects. I care about
+              understanding problems before proposing technical solutions.
+            </p>
+          </article>
+          <article class="card">
+            <h3>Education & community</h3>
+            <p>
+              My interests extend beyond code. Through tutoring and
+              education-focused activities, I have explored ways to help
+              younger learners access learning support and opportunities.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <h2 class="section-title">Selected projects</h2>
+        <p class="section-lead">
+          Projects and prototypes I have worked on. Development status
+          matters: a prototype is not the same as a deployed product.
+        </p>
+        <div class="grid">
+          <article class="card">
+            <div class="meta">EDTECH · OPPORTUNITY DISCOVERY</div>
+            <h3>Nexora</h3>
+            <p>
+              A student-opportunity platform concept designed to help
+              learners discover scholarships, internships, research,
+              and competitions.
+            </p>
+            <div class="tags"><span class="tag">Flutter</span><span class="tag">Firebase</span><span class="tag">Web prototype</span></div>
+            <a href="https://aigirl18yearsold.github.io/Nexora/"
+               target="_blank" rel="noopener noreferrer">View web prototype ↗</a>
+          </article>
+
+          <article class="card">
+            <div class="meta">HEALTH ACCESSIBILITY</div>
+            <h3>MedSOS</h3>
+            <p>
+              A healthcare-accessibility prototype exploring voice
+              assistance, medication management, navigation, and
+              emergency-support features.
+            </p>
+            <div class="tags"><span class="tag">Flutter</span><span class="tag">Dart</span><span class="tag">Accessibility</span></div>
+            <a href="https://github.com/aigirl18yearsold"
+               target="_blank" rel="noopener noreferrer">Explore my GitHub ↗</a>
+          </article>
+
+          <article class="card">
+            <div class="meta">WATER · HEALTH · SUSTAINABILITY</div>
+            <h3>AquaLoop</h3>
+            <p>
+              An early-stage project exploring connections between water,
+              health, and more sustainable everyday practices.
+            </p>
+            <div class="tags"><span class="tag">Prototype</span><span class="tag">Sustainability</span></div>
+            <a href="https://aigirl18yearsold.github.io/AquaLoop-/"
+               target="_blank" rel="noopener noreferrer">View project page ↗</a>
+          </article>
+
+          <article class="card">
+            <div class="meta">AI · EDUCATION</div>
+            <h3>SilentRisk AI</h3>
+            <p>
+              A student-risk early-warning concept exploring how attendance,
+              academic performance, and engagement signals could help
+              identify learners who may need support.
+            </p>
+            <div class="tags"><span class="tag">AI concept</span><span class="tag">Education</span><span class="tag">Early warning</span></div>
+            <a href="https://github.com/aigirl18yearsold/SilentRisk-AI-Dev-Risk-Agent"
+               target="_blank" rel="noopener noreferrer">View repository ↗</a>
+          </article>
+
+          <article class="card">
+            <div class="meta">AI · CREDIBILITY</div>
+            <h3>TruthQuest</h3>
+            <p>
+              A project concept focused on helping users think critically
+              about online claims and AI-generated or manipulated content.
+            </p>
+            <div class="tags"><span class="tag">AI literacy</span><span class="tag">In development</span></div>
+            <a href="https://github.com/aigirl18yearsold"
+               target="_blank" rel="noopener noreferrer">Explore my GitHub ↗</a>
+          </article>
+
+          <article class="card">
+            <div class="meta">ALL PROJECTS</div>
+            <h3>More experiments</h3>
+            <p>
+              Explore my public repositories for code, documentation,
+              experiments, and future updates.
+            </p>
+            <a href="https://github.com/aigirl18yearsold"
+               target="_blank" rel="noopener noreferrer">Visit my GitHub profile ↗</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="research">
+      <div class="container">
+        <h2 class="section-title">Research & writing</h2>
+        <p class="section-lead">
+          I am interested in research that connects technical systems
+          with human outcomes.
+        </p>
+        <div class="grid">
+          <article class="card">
+            <div class="meta">RESEARCH MANUSCRIPT</div>
+            <h3>Post-nuclear remediation and human recovery</h3>
+            <p>
+              “A Literature-Informed Multi-Criteria Framework for
+              Post-Nuclear Remediation and Human Recovery Assessment.”
+              This manuscript explores a multi-criteria framework for
+              assessing remediation and human recovery.
+            </p>
+            <p><strong>Status:</strong> Manuscript work; not presented here as peer-reviewed publication.</p>
+          </article>
+          <article class="card">
+            <div class="meta">RESEARCH INTERESTS</div>
+            <h3>Questions I want to investigate</h3>
+            <div class="tags">
+              <span class="tag">Human-centered AI</span>
+              <span class="tag">AI in education</span>
+              <span class="tag">Accessible technology</span>
+              <span class="tag">Responsible AI</span>
+            </div>
+            <p>
+              I aim to develop stronger research methods, evaluate evidence,
+              and communicate limitations as carefully as results.
+            </p>
+          </article>
+        </div>
+        <p style="color:var(--muted);font-size:.9rem;margin-top:18px">
+          I also have research-related work on OSF. Add direct paper links
+          after checking that each item is public and its status is accurate.
+        </p>
+      </div>
+    </section>
+
+    <section id="achievements">
+      <div class="container">
+        <h2 class="section-title">Achievements & experience</h2>
+        <p class="section-lead">
+          Selected milestones, presented with their actual scope.
+        </p>
+        <div class="timeline">
+          <div class="timeline-item">
+            <h3>Lumiere Scholars Essay Prize — Excellence Award</h3>
+            <p>Shortlisted in an international essay competition and received an Excellence Award with a $1,000 scholarship, as reported by the organizer.</p>
+          </div>
+          <div class="timeline-item">
+            <h3>TED-Ed — Learning to Be Heard</h3>
+            <p>Finalist in the 2026 Global Public Speaking Challenge.</p>
+          </div>
+          <div class="timeline-item">
+            <h3>USAII Global AI Hackathon</h3>
+            <p>Team finalist with MedSOS; contributed as team leader.</p>
+          </div>
+          <div class="timeline-item">
+            <h3>Regional Astronomy Olympiad</h3>
+            <p>Received a regional medal and qualified for the national level.</p>
+          </div>
+          <div class="timeline-item">
+            <h3>Education & tutoring</h3>
+            <p>Experience supporting younger students through tutoring and low-cost learning activities.</p>
+          </div>
+          <div class="timeline-item">
+            <h3>Academic foundation</h3>
+            <p>SSC 2024 — Golden GPA 5.00. HSC completed in 2026.</p>
+          </div>
+        </div>
+        <p style="color:var(--muted);font-size:.88rem">
+          Awards and scholarships have specific terms and scopes. Verify
+          certificates, award names, dates, and scholarship conditions
+          before submitting this site with an application.
+        </p>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="contact-box">
+          <div class="eyebrow">Let's connect</div>
+          <h2 class="section-title">Interested in my work?</h2>
+          <p class="section-lead">
+            I welcome appropriate research conversations, mentorship,
+            and opportunities to learn and contribute.
+          </p>
+          <div class="actions">
+            <a class="btn primary" href="mailto:khatunshaila02@gmail.com">Email me</a>
+            <a class="btn secondary" href="https://github.com/aigirl18yearsold"
+               target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      © <span id="year"></span> Homyra Akther Shaila · Built with HTML & CSS · Hosted on GitHub Pages
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
